@@ -1,0 +1,16 @@
+{{also|劍士|剑士}}
+=={{ja}}==
+[[Category:{{ja}}]]
+{{kana-DEFAULTSORT|けんし}}
+==={{noun}}===
+[[Category:{{ja}}_{{noun}}]]
+{{jachars}}（[[けんし]]）
+#[[剣術]]に[[たくみ|巧み]]な者。[[剣客]]。
+</>
+{{also|劍士|剑士}}
+=={{ja}}==
+[[Category:{{ja}}]]
+{{kana-DEFAULTSORT|けんし}}
+==={{noun}}===
+{{ja-noun|[[けんし]]}}
+#[[剣術]]に[[たくみ|巧み]]な者。[[剣客]]。
