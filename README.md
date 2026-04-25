@@ -1,5 +1,28 @@
 Prototype of a bot for the [Japanese Wiktionary](https://ja.wiktionary.org/wiki/Wiktionary:メインページ)
 
+At the moment it only contains a series of string replacements that should applied by the bot.
+
+The main transformation, implemented in `main.py` updates to the `{{ja-noun}}` (and variants) template.
+
+```diff
+==={{noun}}===
+-[[Category:{{ja}}_{{noun}}]]
+-[[Category:{{ja}}_{{noun}}_サ変動詞]]
+-{{jachar|思|慮}}（[[しりょ]]）
++{{ja-noun-suru|[[しりょ]]}}
+```
+
+Concretely, `main.py` contains a repl(acement) function that consumes wikitext, of signature:
+
+```py
+def repl(s: str) -> str:
+    pass
+```
+
+Similarly, there are other replacement functions for some other fixes, but those are not prioritary.
+
+### Test
+
 Requires pytest (`pip install pytest`), then run `pytest --verbose` (the verbose flag will show why some tests are skipped).
 
 ### TODO
