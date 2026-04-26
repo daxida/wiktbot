@@ -11,6 +11,15 @@ CORRECT_PAGES = [
 #[[売買]]で[[かう|買う]]方の[[側]]。
 {{スタブ|日本語}}
 """,
+    # Don't change the section for Chinese...
+    """
+=={{L|zh}}==
+==={{noun}}===
+[[Category:{{zh}}_{{noun}}|lan2]]
+[[Category:{{zh}}_植物|lan2]]
+[[Category:{{zh}}_色|lan2]]
+#（植物、染料）{{ふりがな|藍|あい}}。
+    """,
 ]
 
 

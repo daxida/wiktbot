@@ -42,6 +42,10 @@ def _run(max_pages: int) -> None:
 
 
 def format_line(line: str) -> str:
+    # For visualization
+    if not line.endswith("\n"):
+        line += "\n"
+
     if line.startswith("+++") or line.startswith("---"):
         return f'<span class="hdr">{line}</span>'
     elif line.startswith("+"):

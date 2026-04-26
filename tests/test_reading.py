@@ -38,6 +38,20 @@ def test_empty_reading() -> None:
     mktest(raw, expected)
 
 
+def test_not_kana_in_reading() -> None:
+    raw = """
+==={{noun}}===
+[[Category:{{ja}} {{noun}}]]
+'''[[合]]（い）[[縁]]'''（あいえん 異表記:[[相]][[縁]], [[愛]][[縁]]）
+"""
+    expected = """
+==={{noun}}===
+[[Category:{{ja}} {{noun}}]]
+'''[[合]]（い）[[縁]]'''（あいえん 異表記:[[相]][[縁]], [[愛]][[縁]]）
+"""
+    mktest(raw, expected)
+
+
 def test_jachar1() -> None:
     raw = """
 =={{ja}}==

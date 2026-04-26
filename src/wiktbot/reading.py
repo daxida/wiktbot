@@ -84,7 +84,8 @@ def try_repl_section(section: list[str], header: Header) -> list[str] | None:
 
     if not is_kana_only(reading):
         # print(f"[WARN] {reading=} is not kana-only. Trying multiple readings...")
-        if many_readings := try_split_reading(reading):
+        many_readings = try_split_reading(reading)
+        if many_readings and all(is_kana_only(r) for r in many_readings):
             readings = many_readings
         else:
             return None
