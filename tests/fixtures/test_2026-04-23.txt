@@ -9,7 +9,6 @@
 </>
 {{also|劍士|剑士}}
 =={{ja}}==
-[[Category:{{ja}}]]
 {{kana-DEFAULTSORT|けんし}}
 ==={{noun}}===
 {{ja-noun|[[けんし]]}}

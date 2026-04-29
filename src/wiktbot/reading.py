@@ -135,7 +135,7 @@ def extract_prelude(lines: list[str], header: Header) -> Prelude:
                 continue
         if header == "noun" and line in SURU_VERB_CATEGORIES:
             new_header = "noun-suru"
-        if not is_removable_category(header, line):
+        if not is_category_removable(header, line):
             categories.append(line)
         idx += 1
 
@@ -203,9 +203,20 @@ def try_parse_category(s: str, cat: str = "") -> bool:
     return re.search(rf"\[\[(?:[Cc]ategory|カテゴリ):{inner}\]\]", s) is not None
 
 
-def is_removable_category(pos: Header, cat: str) -> bool:
+def is_category_removable(pos: Header, cat: str) -> bool:
     return (
         re.search(rf"\[\[(?:[Cc]ategory|カテゴリ):{{{{ja}}}}[ _]{{{{{pos}}}}}", cat)
+        is not None
+    )
+
+
+def is_category_ja(line: str) -> bool:
+    # Assumes line is in lowercase
+    # * [[カテゴリ:日本語]]
+    # * [[Category:{{ja}}]]
+    # * [[Category:{{ja}}|れんしよう れんじょう]]
+    return (
+        re.search(r"\[\[(?:category:\{\{ja\}\}|カテゴリ:日本語)(?:\|[^\]]+)?\]\]", line)
         is not None
     )
 
@@ -222,6 +233,17 @@ def try_split_reading(s: str) -> list[str]:
 
 
 def repl_reading(s: str) -> str:
+    found = False
     for pos in ("noun", "adverb", "name"):
-        s = try_repl(s, pos) or s
+        if replacement := try_repl(s, pos):
+            found = True
+            s = replacement
+
+    # If we found a replacement, we can remove the category: [[カテゴリ:日本語]]
+    # anywhere on the wikitext (according to @Naggy Nagumo)
+    if found:
+        s = "\n".join(
+            line for line in s.splitlines() if not is_category_ja(line.lower().strip())
+        )
+
     return s

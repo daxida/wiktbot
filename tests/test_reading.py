@@ -78,7 +78,6 @@ def test_jachar1() -> None:
 """
     expected = """
 =={{ja}}==
-[[Category:{{ja}}]]
 {{kana-DEFAULTSORT|まつび}}
 ==={{noun}}===
 {{ja-noun|まつび}}
@@ -89,9 +88,6 @@ def test_jachar1() -> None:
 
 def test_jachar2() -> None:
     raw = """
-=={{ja}}==
-[[Category:{{ja}}]]
-{{kana-DEFAULTSORT|とっきょ}}
 ==={{noun}}===
 [[Category:{{ja}}_{{noun}}]]
 {{jachar|特|許}}（とっきょ）
@@ -101,9 +97,6 @@ def test_jachar2() -> None:
 *[[特許権]]
     """
     expected = """
-=={{ja}}==
-[[Category:{{ja}}]]
-{{kana-DEFAULTSORT|とっきょ}}
 ==={{noun}}===
 {{ja-noun|とっきょ}}
 #[[特定]]の人のために[[あたらしい|新しく]][[権利]]を[[設定]]すること。
@@ -129,7 +122,6 @@ def test_jachars() -> None:
     expected = """
 {{DEFAULTSORT:さいしゆう さいしゅう 最終}}
 =={{ja}}==
-[[Category:{{ja}}]]
 ==={{noun}}===
 {{ja-noun|さいしゅう}}
 #[[一番]]の[[おわり|終わり]]。
@@ -167,7 +159,6 @@ def test_bold_base() -> None:
 """
     expected = """
 =={{ja}}==
-[[Category:{{ja}}|れんしよう れんじょう]]
 ==={{noun}}===
 {{ja-noun|[[れんじょう]]}}
 #特定の[[ひと|人]]を[[こいしたう|恋い慕う]][[きもち|気持ち]]。
@@ -213,8 +204,6 @@ def test_bold_multiple_mixed() -> None:
 
 def test_jachar_multiple_readings() -> None:
     raw = """
-=={{ja}}==
-[[Category:{{ja}}]]
 ==={{noun}}===
 [[Category:{{ja}}_{{noun}}]]
 [[Category:{{ja}}_刀剣|ちくとう]]
@@ -225,8 +214,6 @@ def test_jachar_multiple_readings() -> None:
 # （ちくとう、たけがたな）竹製の[[かたな|刀]]。[[竹光]]。
 """
     expected = """
-=={{ja}}==
-[[Category:{{ja}}]]
 ==={{noun}}===
 {{ja-noun|ちくとう|[[たけがたな]]|[[しない]]}}
 [[Category:{{ja}}_刀剣|ちくとう]]
@@ -307,7 +294,6 @@ def test_bold_long() -> None:
     expected = """
 {{wikipedia}}
 =={{ja}}==
-[[Category:{{ja}}|けんり]]
 ==={{noun}}===
 {{ja-noun|[[けんり]]}}
 # [[法]]によって[[実行]]が[[保証]]される[[行為]]。
@@ -370,7 +356,6 @@ def test_bold_extra_empty_line() -> None:
 """
     expected = """
 =={{ja}}==
-[[Category:{{ja}}]]
 
 ==={{noun}}===
 {{ja-noun-suru|あいがん}}
@@ -442,7 +427,6 @@ def test_bold2() -> None:
 """
     expected = """
 =={{ja}}==
-[[Category:{{ja}}|あいさかり]]
 ==={{noun}}===
 {{ja-noun|アイザカ-り}}
 #（特に子女が）もっとも[[愛らしい|愛らしく]]みえる[[年頃]]。かわゆきさかり。
@@ -452,18 +436,12 @@ def test_bold2() -> None:
 
 def test_adverb1() -> None:
     raw = """
-{{DEFAULTSORT:いくえにも {{PAGENAME}}}}
-=={{ja}}==
-[[Category:{{ja}}]]
 ==={{adverb}}===
 [[Category:{{ja}}_{{adverb}}]]
 '''[[幾]][[重]]にも'''（[[いくえ]]にも）
 #[[いくつ|幾つ]]も[[かさなる|重なっ]]ていること。
 """
     expected = """
-{{DEFAULTSORT:いくえにも {{PAGENAME}}}}
-=={{ja}}==
-[[Category:{{ja}}]]
 ==={{adverb}}===
 {{ja-adv|[[いくえ]]にも}}
 #[[いくつ|幾つ]]も[[かさなる|重なっ]]ていること。
@@ -489,6 +467,7 @@ def test_name1() -> None:
 
 
 # WARN: Do not change anything.
+# (Since there is no replacement, [[Category:{{ja}}|おうおう]] is unchanged)
 #
 # @pytest.mark.skip(reason="not implemented yet, how to deal with 異表記?")
 def test_adverb_with_noise() -> None:
